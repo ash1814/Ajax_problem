@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action = ""  method= "post"  > 
+    Name  : <input type="text" name="name" id="name" required><br>
+    Email   : <input type="email" name="email" id="email" required><br>
+    Contact : <input type="text" name="contact" id="contact" required><br>                            
+  
+   <button type="button" onclick="saveRecord()">Save</button>
+       
+    <div class="table">
+    <table>
+    <thead>
+  
+         <th> Name  </th>
+           <th> Email  </th>
+             <th> Contact  </th>
+
+             <tbody>
+            <?php
+
+               for ($i=0; $i < ; $i++) { 
+                   # code...
+               } 
+
+
+            ?>
+
+
+             </tbody>
+    
+
+    </thead>
+
+
+    </table>
+
+
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        function getEmployee(){
+         var xhttp = new XMLHttpRequest();
+       
+            xhttp.open("GET", "getEmployees.php",true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+
+        }
+
+        getEmployee();
+
+
+
+        function saveRecord() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var contact = document.getElementById('contact').value;
+             var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //     document.getElementById("demo").innerHTML = this.responseText;
+        //     }
+        // };
+            xhttp.open("POST", "crud.php",true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("name="+name+"&email="+email+"&contact="+contact);
+            
+        }
+
+
+    </script>
+
+
+</body>
+</html>
